@@ -1,8 +1,10 @@
-#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
-#include "Window.h"
 #include "../Game.h"
+#include "Window.h"
+
+//delete later
+#include <GLFW/glfw3.h>
 
 int main()
 {

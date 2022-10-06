@@ -101,7 +101,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -133,7 +133,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\GLFW\lib-vc2019;$(SolutionDir)Dependencies\GLEW\lib\Release\x64</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -156,11 +156,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Core\EntryPoint.cpp" />
+    <ClCompile Include="Source\Core\OpenGL\IndexBuffer.cpp" />
+    <ClCompile Include="Source\Core\OpenGL\Shader.cpp" />
+    <ClCompile Include="Source\Core\stb_image\stb_image.cpp" />
+    <ClCompile Include="Source\Core\OpenGL\Texture.cpp" />
+    <ClCompile Include="Source\Core\OpenGL\VertexArray.cpp" />
+    <ClCompile Include="Source\Core\OpenGL\VertexBuffer.cpp" />
     <ClCompile Include="Source\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\OpenGL\IndexBuffer.h" />
+    <ClInclude Include="Source\Core\OpenGL.h" />
+    <ClInclude Include="Source\Core\OpenGL\Shader.h" />
+    <ClInclude Include="Source\Core\stb_image\stb_image.h" />
+    <ClInclude Include="Source\Core\OpenGL\Texture.h" />
+    <ClInclude Include="Source\Core\OpenGL\VertexArray.h" />
+    <ClInclude Include="Source\Core\OpenGL\VertexBuffer.h" />
     <ClInclude Include="Source\Core\Window.h" />
     <ClInclude Include="Source\Game.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basic.fragment" />
+    <None Include="Resources\basic.vertex" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

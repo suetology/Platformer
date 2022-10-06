@@ -1,5 +1,6 @@
 #pragma once
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
@@ -9,7 +10,7 @@ public:
 	Window(const char *title, int width = 0, int height = 0, glm::vec3 backgroundColor = glm::vec3(1.0f));
 	~Window();
 
-	int Init(const char *title, int width, int height, glm::vec3 backgroundColor);
+	int Init();
 	bool Opened();
 	void Clear();
 	void Close();
