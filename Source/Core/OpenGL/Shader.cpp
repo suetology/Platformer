@@ -5,31 +5,31 @@
 #include <iostream>
 
 Shader::Shader(unsigned int id)
-	: m_Id(id) { }
+	: id(id) { }
 
 Shader::~Shader()
 {
-	glDeleteProgram(m_Id);
+	glDeleteProgram(id);
 }
 
 void Shader::Use() const
 {
-	glUseProgram(m_Id);
+	glUseProgram(id);
 }
 
 void Shader::UniformFloat(const char* name, float value)
 {
-    glUniform1f(glGetUniformLocation(m_Id, name), value);
+    glUniform1f(glGetUniformLocation(id, name), value);
 }
 
 void Shader::UniformVec4f(const char* name, float f1, float f2, float f3, float f4)
 {
-    glUniform4f(glGetUniformLocation(m_Id, name), f1, f2, f3, f4);
+    glUniform4f(glGetUniformLocation(id, name), f1, f2, f3, f4);
 }
 
 void Shader::UniformMat4f(const char* name, const GLfloat* data)
 {
-	glUniformMatrix4fv(glGetUniformLocation(m_Id, name), 1, GL_FALSE, data);
+	glUniformMatrix4fv(glGetUniformLocation(id, name), 1, GL_FALSE, data);
 }
 
 Shader* load_shader(const std::string& vsFilepath, const std::string& fsFilepath)

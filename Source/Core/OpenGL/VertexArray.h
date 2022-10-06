@@ -10,6 +10,6 @@ public:
 	void Unbind() const;
 
 private:
-	unsigned int m_Id;
+	unsigned int id;
 };
 

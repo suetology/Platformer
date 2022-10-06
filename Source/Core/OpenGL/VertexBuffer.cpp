@@ -2,8 +2,8 @@
 
 VertexBuffer::VertexBuffer(const void* vertices, GLsizeiptr size)
 {
-	glGenBuffers(1, &m_Id);
-	glBindBuffer(GL_ARRAY_BUFFER, m_Id);
+	glGenBuffers(1, &id);
+	glBindBuffer(GL_ARRAY_BUFFER, id);
 	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
@@ -14,12 +14,12 @@ VertexBuffer::VertexBuffer(const void* vertices, GLsizeiptr size)
 
 VertexBuffer::~VertexBuffer()
 {
-	glDeleteBuffers(1, &m_Id);
+	glDeleteBuffers(1, &id);
 }
 
 void VertexBuffer::Bind() const
 {
-	glBindBuffer(GL_ARRAY_BUFFER, m_Id);
+	glBindBuffer(GL_ARRAY_BUFFER, id);
 }
 
 void VertexBuffer::Unbind() const

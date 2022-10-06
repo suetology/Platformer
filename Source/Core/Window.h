@@ -11,13 +11,13 @@ public:
 	~Window();
 
 	int Init();
-	bool Opened();
-	void Clear();
+	bool Opened() const;
+	void Clear() const;
 	void Close();
 
-	inline GLFWwindow *Get() { return window; }
-	inline int GetWidth() { return width; }
-	inline int GetHeight() { return height; }
+	inline GLFWwindow *Get() const { return window; }
+	inline int GetWidth() const { return width; }
+	inline int GetHeight() const { return height; }
 
 private:
 	GLFWwindow *window;

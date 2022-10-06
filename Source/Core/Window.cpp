@@ -38,12 +38,12 @@ int Window::Init()
     return 0;
 }
 
-bool Window::Opened()
+bool Window::Opened() const
 {
 	return !glfwWindowShouldClose(window);
 }
 
-void Window::Clear()
+void Window::Clear() const
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, 1.0f);

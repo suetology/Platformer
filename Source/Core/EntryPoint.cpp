@@ -23,6 +23,7 @@ int main()
         glfwPollEvents();
     }
 
+    delete game;
     delete window;
     return 0;
 }

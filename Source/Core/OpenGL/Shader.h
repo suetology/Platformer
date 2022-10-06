@@ -7,7 +7,7 @@
 class Shader
 {
 public:
-	unsigned int m_Id;
+	unsigned int id;
 
 	Shader(unsigned int id);
 	~Shader();

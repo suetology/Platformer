@@ -13,6 +13,6 @@ public:
 	void Delete();
 
 private:
-	unsigned int m_Id;
+	unsigned int id;
 };
 
