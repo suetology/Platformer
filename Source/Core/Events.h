@@ -1,5 +1,7 @@
 #pragma once
 
+#include <glm/glm.hpp>
+
 #define KEYS 1024
 #define BUTTONS 1032
 
@@ -9,6 +11,8 @@ public:
 	static bool *keys;
 	static unsigned int *frames;
 	static unsigned int currentFrame;
+	static glm::vec2 lastMousePosition;
+	static glm::vec2 mouseDelta;
 
 	static int Init();
 	static void Shutdown();

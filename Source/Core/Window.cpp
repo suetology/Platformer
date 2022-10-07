@@ -9,7 +9,7 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
         Events::keys[key] = true;
         Events::frames[key] = Events::currentFrame;
     }
-    else
+    else if (action == GLFW_RELEASE)
     {
         Events::keys[key] = false;
         Events::frames[key] = Events::currentFrame;
@@ -18,12 +18,25 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
 
 void cursor_pos_callback(GLFWwindow *window, double xpos, double ypos)
 {
+    float x = static_cast<float>(xpos);
+    float y = static_cast<float>(ypos);
 
+    Events::mouseDelta.x = x - Events::lastMousePosition.x;
+    Events::mouseDelta.y = Events::lastMousePosition.y - y;
 }
 
 void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
 {
-
+    if (action == GLFW_PRESS)
+    {
+        Events::keys[KEYS + button] = true;
+        Events::frames[KEYS + button] = Events::currentFrame;
+    }
+    else if (action == GLFW_RELEASE)
+    {
+        Events::keys[KEYS + button] = false;
+        Events::frames[KEYS + button] = Events::currentFrame;
+    }
 }
 
 Window::Window(const char *title, int width, int height, glm::vec3 backgroundColor)
