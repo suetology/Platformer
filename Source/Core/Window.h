@@ -12,10 +12,11 @@ public:
 
 	int Init();
 	bool Opened() const;
+	void OnUpdate();
 	void Clear() const;
 	void Close();
 
-	inline GLFWwindow *Get() const { return window; }
+	inline GLFWwindow *Get() { return window; }
 	inline int GetWidth() const { return width; }
 	inline int GetHeight() const { return height; }
 

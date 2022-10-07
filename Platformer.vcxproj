@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Events.cpp" />
     <ClCompile Include="Source\Core\EntryPoint.cpp" />
     <ClCompile Include="Source\Core\OpenGL\IndexBuffer.cpp" />
     <ClCompile Include="Source\Core\OpenGL\Shader.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Source\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Events.h" />
     <ClInclude Include="Source\Core\OpenGL\IndexBuffer.h" />
     <ClInclude Include="Source\Core\OpenGL.h" />
     <ClInclude Include="Source\Core\OpenGL\Shader.h" />

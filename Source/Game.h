@@ -1,6 +1,11 @@
 #pragma once
 
+#include <iostream>
+
 #include "Core/OpenGL.h"
+#include "Core/Events.h"
+
+#include "GLFW/glfw3.h"
 
 class Game
 {	

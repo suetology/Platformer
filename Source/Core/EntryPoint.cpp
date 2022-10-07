@@ -1,13 +1,12 @@
 #include <glm/glm.hpp>
 
 #include "../Game.h"
+#include "Events.h"
 #include "Window.h"
-
-//delete later
-#include <GLFW/glfw3.h>
 
 int main()
 {
+    Events::Init();
     Window *window = new Window("Mario", 640, 480, glm::vec3(0.5f, 0.5f, 0.5f));
 
     Game *game = new Game();
@@ -19,11 +18,12 @@ int main()
         
         game->Update();
             
-        glfwSwapBuffers(window->Get());
-        glfwPollEvents();
+        Events::OnUpdate();
+        window->OnUpdate();
     }
 
     delete game;
     delete window;
+    Events::Shutdown();
     return 0;
 }
