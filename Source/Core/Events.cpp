@@ -7,14 +7,14 @@
 bool *Events::keys;
 unsigned int *Events::frames;
 unsigned int Events::currentFrame;
-glm::vec2 Events::lastMousePosition;
+glm::vec2 Events::mousePosition;
 glm::vec2 Events::mouseDelta;
 
 int Events::Init()
 {
 	currentFrame = 0;
+	mousePosition = glm::vec2(0.0f);
 	mouseDelta = glm::vec2(0.0f);
-	lastMousePosition = glm::vec2(0.0f);
 
 	keys = new bool[BUTTONS];
 	frames = new unsigned[BUTTONS];
@@ -33,6 +33,7 @@ void Events::Shutdown()
 
 void Events::OnUpdate()
 {
+	mouseDelta = glm::vec2(0.0f);
 	currentFrame++;
 }
 

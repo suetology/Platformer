@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\GameObject.cpp" />
     <ClCompile Include="Source\Core\Events.cpp" />
     <ClCompile Include="Source\Core\EntryPoint.cpp" />
     <ClCompile Include="Source\Core\OpenGL\IndexBuffer.cpp" />
@@ -166,16 +167,20 @@
     <ClCompile Include="Source\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\GameObject.h" />
+    <ClInclude Include="Source\Core\Components\Component.h" />
     <ClInclude Include="Source\Core\Events.h" />
     <ClInclude Include="Source\Core\OpenGL\IndexBuffer.h" />
     <ClInclude Include="Source\Core\OpenGL.h" />
     <ClInclude Include="Source\Core\OpenGL\Shader.h" />
+    <ClInclude Include="Source\Core\Log.h" />
     <ClInclude Include="Source\Core\stb_image\stb_image.h" />
     <ClInclude Include="Source\Core\OpenGL\Texture.h" />
     <ClInclude Include="Source\Core\OpenGL\VertexArray.h" />
     <ClInclude Include="Source\Core\OpenGL\VertexBuffer.h" />
     <ClInclude Include="Source\Core\Window.h" />
     <ClInclude Include="Source\Game.h" />
+    <ClInclude Include="Source\Core\Components\Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\basic.fragment" />

@@ -11,7 +11,7 @@ public:
 	static bool *keys;
 	static unsigned int *frames;
 	static unsigned int currentFrame;
-	static glm::vec2 lastMousePosition;
+	static glm::vec2 mousePosition;
 	static glm::vec2 mouseDelta;
 
 	static int Init();

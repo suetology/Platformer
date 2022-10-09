@@ -21,8 +21,10 @@ void cursor_pos_callback(GLFWwindow *window, double xpos, double ypos)
     float x = static_cast<float>(xpos);
     float y = static_cast<float>(ypos);
 
-    Events::mouseDelta.x = x - Events::lastMousePosition.x;
-    Events::mouseDelta.y = Events::lastMousePosition.y - y;
+    Events::mouseDelta.x = x - Events::mousePosition.x;
+    Events::mouseDelta.y = Events::mousePosition.y - y;
+
+    Events::mousePosition = glm::vec2(x, y);
 }
 
 void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
