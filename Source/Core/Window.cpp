@@ -47,6 +47,7 @@ Window::Window(const char *title, int width, int height, glm::vec3 backgroundCol
     Init();
 }
 
+#include <iostream>
 int Window::Init()
 {
     if (!glfwInit())
@@ -60,8 +61,12 @@ int Window::Init()
     }
     else
     {
-        window = glfwCreateWindow(width, height, title, glfwGetPrimaryMonitor(), NULL);
+        GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+        glfwGetMonitorWorkarea(monitor, NULL, NULL, &width, &height);
+        window = glfwCreateWindow(width, height, title, monitor, NULL);
     }
+
+    aspectRatio = (float)width / height;
 
     if (!window)
     {

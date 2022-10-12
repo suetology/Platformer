@@ -7,7 +7,7 @@
 int main()
 {
     Events::Init();
-    Window *window = new Window("Mario", 640, 480, glm::vec3(0.5f, 0.5f, 0.5f));
+    Window *window = new Window("Mario", 0, 0, glm::vec3(0.5f, 0.5f, 0.5f));
 
     Game *game = new Game();
     game->Start();

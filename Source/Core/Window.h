@@ -7,7 +7,7 @@
 class Window
 {
 public:
-	Window(const char *title, int width = 0, int height = 0, glm::vec3 backgroundColor = glm::vec3(1.0f));
+	Window(const char *title, int width, int height, glm::vec3 backgroundColor = glm::vec3(1.0f));
 	~Window();
 
 	int Init();
@@ -19,10 +19,15 @@ public:
 	inline GLFWwindow *Get() { return window; }
 	inline int GetWidth() const { return width; }
 	inline int GetHeight() const { return height; }
+	inline float GetAspectRatio() const { return aspectRatio; }
+
+	static glm::vec2 ScreenToWorldPosition(glm::vec2 screenPosition);
+	static glm::vec2 WorldToScreenPosition(glm::vec2 worldPosition);
 
 private:
 	GLFWwindow *window;
 	int width, height;
+	float aspectRatio;
 	const char *title;
 	glm::vec3 backgroundColor;
 };

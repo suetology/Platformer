@@ -8,12 +8,6 @@
 class Events
 {
 public:
-	static bool *keys;
-	static unsigned int *frames;
-	static unsigned int currentFrame;
-	static glm::vec2 mousePosition;
-	static glm::vec2 mouseDelta;
-
 	static int Init();
 	static void Shutdown();
 	static void OnUpdate();
@@ -25,5 +19,14 @@ public:
 	static bool GetMouseButton(int button);
 	static bool GetMouseButtonDown(int button);
 	static bool GetMouseButtonUp(int button);
+
+	static glm::vec2 GetMousePosition() { return mousePosition; }
+	static glm::vec2 GetMouseDelta() { return mouseDelta; }
+
+	static bool* keys;
+	static unsigned int* frames;
+	static unsigned int currentFrame;
+	static glm::vec2 mousePosition;
+	static glm::vec2 mouseDelta;
 };
 
