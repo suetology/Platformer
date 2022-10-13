@@ -7,28 +7,25 @@
 class Window
 {
 public:
-	Window(const char *title, int width, int height, glm::vec3 backgroundColor = glm::vec3(1.0f));
-	~Window();
+	static int Init(const char* title, int width, int height, glm::vec3 backgroundColor = glm::vec3(1.0f));
+	static bool Opened();
+	static void OnUpdate();
+	static void Clear();
+	static void Close();
 
-	int Init();
-	bool Opened() const;
-	void OnUpdate();
-	void Clear() const;
-	void Close();
-
-	inline GLFWwindow *Get() { return window; }
-	inline int GetWidth() const { return width; }
-	inline int GetHeight() const { return height; }
-	inline float GetAspectRatio() const { return aspectRatio; }
+	static inline GLFWwindow *Get() { return window; }
+	static inline int GetWidth() { return width; }
+	static inline int GetHeight() { return height; }
+	static inline float GetAspectRatio() { return aspectRatio; }
 
 	static glm::vec2 ScreenToWorldPosition(glm::vec2 screenPosition);
 	static glm::vec2 WorldToScreenPosition(glm::vec2 worldPosition);
 
 private:
-	GLFWwindow *window;
-	int width, height;
-	float aspectRatio;
-	const char *title;
-	glm::vec3 backgroundColor;
+	static GLFWwindow* window;
+	static int width, height;
+	static float aspectRatio;
+	static const char *title;
+	static glm::vec3 backgroundColor;
 };
 

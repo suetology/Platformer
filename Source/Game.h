@@ -3,6 +3,7 @@
 #include "Core/Log.h"
 #include "Core/OpenGL.h"
 #include "Core/Events.h"
+#include "Core/Window.h"
 #include "Core/GameObject.h"
 #include "Core/Components/Transform.h"
 
@@ -32,8 +33,7 @@ public:
 	
 		obj = new GameObject();
 		obj->AddComponent<Transform>();
-		glm::vec3 v = obj->GetComponent<Transform>()->position;
-		PRINT3(v.x, v.y, v.z);
+		
 	}
 
 	void Update()

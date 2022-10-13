@@ -7,23 +7,23 @@
 int main()
 {
     Events::Init();
-    Window *window = new Window("Mario", 0, 0, glm::vec3(0.5f, 0.5f, 0.5f));
+    Window::Init("Mario", 640, 480, glm::vec3(0.5f, 0.5f, 0.5f));
 
     Game *game = new Game();
     game->Start();
     
-    while (window->Opened())
+    while (Window::Opened())
     {
-        window->Clear();
+        Window::Clear();
         
         game->Update();
             
         Events::OnUpdate();
-        window->OnUpdate();
+        Window::OnUpdate();
     }
 
     delete game;
-    delete window;
+    Window::Close();
     Events::Shutdown();
     return 0;
 }

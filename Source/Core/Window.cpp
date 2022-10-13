@@ -2,6 +2,13 @@
 
 #include "Events.h"
 
+GLFWwindow* Window::window;
+int Window::width;
+int Window::height;
+float Window::aspectRatio;
+const char* Window::title;
+glm::vec3 Window::backgroundColor;
+
 void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
     if (action == GLFW_PRESS)
@@ -41,32 +48,30 @@ void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
     }
 }
 
-Window::Window(const char *title, int width, int height, glm::vec3 backgroundColor)
-    : title(title), width(width), height(height), backgroundColor(backgroundColor)
+int Window::Init(const char* title, int width, int height, glm::vec3 backgroundColor)
 {
-    Init();
-}
+    Window::title = title;
+    Window::width = width;
+    Window::height = height;
+    Window::backgroundColor = backgroundColor;
 
-#include <iostream>
-int Window::Init()
-{
     if (!glfwInit())
     {
         return -1;
     }
 
-    if (width != 0 && height != 0)
+    if (Window::width != 0 && Window::height != 0)
     {
-        window = glfwCreateWindow(width, height, title, NULL, NULL);
+        window = glfwCreateWindow(Window::width, Window::height, title, NULL, NULL);
     }
     else
     {
         GLFWmonitor* monitor = glfwGetPrimaryMonitor();
-        glfwGetMonitorWorkarea(monitor, NULL, NULL, &width, &height);
-        window = glfwCreateWindow(width, height, title, monitor, NULL);
+        glfwGetMonitorWorkarea(monitor, NULL, NULL, &Window::width, &Window::height);
+        window = glfwCreateWindow(Window::width, Window::height, Window::title, monitor, NULL);
     }
 
-    aspectRatio = (float)width / height;
+    aspectRatio = (float)Window::width / Window::height;
 
     if (!window)
     {
@@ -88,7 +93,7 @@ int Window::Init()
     return 0;
 }
 
-bool Window::Opened() const
+bool Window::Opened()
 {
 	return !glfwWindowShouldClose(window);
 }
@@ -99,7 +104,7 @@ void Window::OnUpdate()
     glfwPollEvents();
 }
 
-void Window::Clear() const
+void Window::Clear()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(backgroundColor.r, backgroundColor.g, backgroundColor.b, 1.0f);
@@ -111,11 +116,22 @@ void Window::Close()
     {
         glfwSetWindowShouldClose(window, 1);
     }
+    glfwTerminate();
 }
 
-Window::~Window()
+glm::vec2 Window::ScreenToWorldPosition(glm::vec2 screenPosition)
 {
-    Close();
-    glfwTerminate();
+    glm::vec2 worldPosition;
+    worldPosition.x = screenPosition.x / Window::GetWidth() * 2.0f - 1.0f;
+    worldPosition.y = (Window::GetHeight() - screenPosition.y) / Window::GetHeight() * 2 - 1.0f;
+    return worldPosition;
+}
+
+glm::vec2 Window::WorldToScreenPosition(glm::vec2 worldPosition)
+{
+    glm::vec2 screenPosition;
+    screenPosition.x = glm::round((worldPosition.x + 1.0f) / 2.0f * Window::GetWidth());
+    screenPosition.y = glm::round(Window::GetHeight() - (worldPosition.y + 1.0f) / 2.0f * Window::GetHeight());
+    return screenPosition;
 }
 
