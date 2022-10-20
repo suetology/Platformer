@@ -4,6 +4,7 @@
 
 VertexBuffer::VertexBuffer(const void* vertices, GLsizeiptr size)
 {
+    //
 	glGenBuffers(1, &id);
 	glBindBuffer(GL_ARRAY_BUFFER, id);
 	glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
@@ -16,7 +17,7 @@ VertexBuffer::VertexBuffer(const void* vertices, GLsizeiptr size)
 
 VertexBuffer::VertexBuffer(Sprite* sprite)
 {
-	
+
 
 	glGenBuffers(1, &id);
 	glBindBuffer(GL_ARRAY_BUFFER, id);
