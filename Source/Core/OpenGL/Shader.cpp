@@ -27,9 +27,9 @@ void Shader::UniformVec4f(const char* name, float f1, float f2, float f3, float 
     glUniform4f(glGetUniformLocation(id, name), f1, f2, f3, f4);
 }
 
-void Shader::UniformMat4f(const char* name, const GLfloat* data)
+void Shader::UniformMat4f(const char* name, glm::mat4 data)
 {
-	glUniformMatrix4fv(glGetUniformLocation(id, name), 1, GL_FALSE, data);
+	glUniformMatrix4fv(glGetUniformLocation(id, name), 1, GL_FALSE, glm::value_ptr(data));
 }
 
 Shader* load_shader(const std::string& vsFilepath, const std::string& fsFilepath)

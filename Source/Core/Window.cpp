@@ -89,6 +89,8 @@ int Window::Init(const char* title, int width, int height, glm::vec3 backgroundC
     {
         return -1;
     }
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     return 0;
 }

@@ -166,6 +166,7 @@
     <ClCompile Include="Source\Core\OpenGL\VertexBuffer.cpp" />
     <ClCompile Include="Source\Core\Window.cpp" />
     <ClCompile Include="Source\Core\Sprite.cpp" />
+    <ClCompile Include="Source\Core\Components\SpriteRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Core\GameObject.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Source\Game.h" />
     <ClInclude Include="Source\Core\Components\Transform.h" />
     <ClInclude Include="Source\Core\Sprite.h" />
+    <ClInclude Include="Source\Core\Components\SpriteRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\basic.fragment" />
