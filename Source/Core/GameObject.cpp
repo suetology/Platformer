@@ -16,6 +16,7 @@ Transform* GameObject::AddTransformComponent(Transform* transform)
 		transform == nullptr ? this->transform = new Transform() : this->transform = transform;
 	}
 	return this->transform;
+
 }
 
 Transform* GameObject::GetTransformComponent()
