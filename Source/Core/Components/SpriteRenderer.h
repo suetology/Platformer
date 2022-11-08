@@ -17,9 +17,9 @@ private:
 public:
 	SpriteRenderer();
 	SpriteRenderer(Sprite* sprite);
+	~SpriteRenderer();
 
 	void AttachSprite(Sprite* sprite);
 	void Render(Transform* transform);
-
 };	
 

@@ -1,8 +1,11 @@
+#include <vector>
+
 #include <glm/glm.hpp>
 
 #include "../Game.h"
 #include "Events.h"
 #include "Window.h"
+#include "GameObject.h"
 
 int main()
 {
@@ -17,6 +20,11 @@ int main()
         Window::Clear();
         
         game->Update();
+        
+        for (auto o : game->objects)
+        {
+            o->Render();
+        }
             
         Events::OnUpdate();
         Window::OnUpdate();
