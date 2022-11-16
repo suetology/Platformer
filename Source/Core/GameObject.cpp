@@ -37,3 +37,21 @@ SpriteRenderer* GameObject::GetSpriteRendererComponent()
 {
 	return spriteRenderer;
 }
+
+BoxCollider2D* GameObject::AddBoxCollider2DComponent(BoxCollider2D* boxCollider2D)
+{
+	if (!this->transform)
+	{
+		return nullptr;
+	}
+	if (!this->boxCollider2D)
+	{
+		boxCollider2D == nullptr ? this->boxCollider2D = new BoxCollider2D(this->transform) : this->boxCollider2D = boxCollider2D;
+	}
+	return this->boxCollider2D;
+}
+
+BoxCollider2D* GameObject::GetBoxCollider2DComponent()
+{
+	return boxCollider2D;
+}

@@ -14,6 +14,6 @@ public:
 
 	bool CheckCollision(glm::vec2 point);
 private:
-	bool RayIntersectsLine(glm::vec2 borderA, glm::vec2 borderB, glm::vec2 point);
+	bool RayIntersectLine(glm::vec2 borderA, glm::vec2 borderB, glm::vec2 point);
 };
 

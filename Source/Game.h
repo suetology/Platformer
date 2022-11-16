@@ -7,6 +7,7 @@
 #include "Core/Window.h"
 #include "Core/GameObject.h"
 #include "Core/Components/Transform.h"
+#include "Core/Components/BoxCollider2D.h"
 
 #include "GLFW/glfw3.h"
 
@@ -26,6 +27,7 @@ public:
 		objects.push_back(new GameObject());
 		objects[0]->AddComponent<Transform>();
 		objects[0]->AddComponent<SpriteRenderer>()->AttachSprite(sprite);
+		objects[0]->AddComponent<BoxCollider2D>();
 	}
 
 	void Update()

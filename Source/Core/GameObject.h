@@ -5,7 +5,7 @@
 
 #include "Components/Transform.h"
 #include "Components/SpriteRenderer.h"
-#include "Components/Component.h"
+#include "Components/BoxCollider2D.h"
 
 class GameObject
 {
@@ -15,6 +15,7 @@ private:
 	
 	Transform* transform;
 	SpriteRenderer* spriteRenderer;
+	BoxCollider2D* boxCollider2D;
 
 public:
 	void Render();
@@ -27,11 +28,14 @@ public:
 			return (T*)AddTransformComponent();
 			//return component == nullptr ? (T*)AddTransformComponent() : (T*)AddTransformComponent((Transform*)component);
 		}
-
 		if (strcmp(typeid(T).name(), "class SpriteRenderer") == 0)
 		{
 			return (T*)AddSpriteRendererComponent();
 			//return component == nullptr ? (T*)AddSpriteRendererComponent() : (T*)AddSpriteRendererComponent((SpriteRenderer*)component);
+		}
+		if (strcmp(typeid(T).name(), "class BoxCollider2D") == 0)
+		{
+			return (T*)AddBoxCollider2DComponent();
 		}
 		return nullptr;
 	}
@@ -47,6 +51,10 @@ public:
 		{
 			return (T*)spriteRenderer;
 		}
+		if (strcmp(typeid(T).name(), "class BoxCollider2D") == 0 && boxCollider2D)
+		{
+			return (T*)boxCollider2D;
+		}
 		return nullptr;
 	}
 
@@ -55,4 +63,6 @@ private:
 	Transform* GetTransformComponent();
 	SpriteRenderer* AddSpriteRendererComponent(SpriteRenderer* spriteRenderer = nullptr);
 	SpriteRenderer* GetSpriteRendererComponent();
+	BoxCollider2D* AddBoxCollider2DComponent(BoxCollider2D* boxCollider2D = nullptr);
+	BoxCollider2D* GetBoxCollider2DComponent();
 };
