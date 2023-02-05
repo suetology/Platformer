@@ -9,7 +9,7 @@ float Window::aspectRatio;
 const char* Window::title;
 glm::vec3 Window::backgroundColor;
 
-void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (action == GLFW_PRESS)
     {
@@ -23,7 +23,7 @@ void key_callback(GLFWwindow *window, int key, int scancode, int action, int mod
     }
 }
 
-void cursor_pos_callback(GLFWwindow *window, double xpos, double ypos)
+void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
 {
     float x = static_cast<float>(xpos);
     float y = static_cast<float>(ypos);
@@ -34,7 +34,7 @@ void cursor_pos_callback(GLFWwindow *window, double xpos, double ypos)
     Events::mousePosition = glm::vec2(x, y);
 }
 
-void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
     if (action == GLFW_PRESS)
     {
@@ -125,6 +125,7 @@ glm::vec2 Window::ScreenToWorldPosition(glm::vec2 screenPosition)
 {
     glm::vec2 worldPosition;
     worldPosition.x = screenPosition.x / Window::GetWidth() * 2.0f - 1.0f;
+    worldPosition.x *= aspectRatio;
     worldPosition.y = (Window::GetHeight() - screenPosition.y) / Window::GetHeight() * 2 - 1.0f;
     return worldPosition;
 }
@@ -132,6 +133,7 @@ glm::vec2 Window::ScreenToWorldPosition(glm::vec2 screenPosition)
 glm::vec2 Window::WorldToScreenPosition(glm::vec2 worldPosition)
 {
     glm::vec2 screenPosition;
+    worldPosition.x /= aspectRatio;
     screenPosition.x = glm::round((worldPosition.x + 1.0f) / 2.0f * Window::GetWidth());
     screenPosition.y = glm::round(Window::GetHeight() - (worldPosition.y + 1.0f) / 2.0f * Window::GetHeight());
     return screenPosition;

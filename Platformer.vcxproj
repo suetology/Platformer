@@ -155,6 +155,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Core\Camera2D.cpp" />
+    <ClCompile Include="Source\Core\Components\CircleCollider.cpp" />
     <ClCompile Include="Source\Core\Components\BoxCollider2D.cpp" />
     <ClCompile Include="Source\Core\GameObject.cpp" />
     <ClCompile Include="Source\Core\Events.cpp" />
@@ -170,7 +172,10 @@
     <ClCompile Include="Source\Core\Components\SpriteRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Core\Camera2D.h" />
+    <ClInclude Include="Source\Core\Components\CircleCollider.h" />
     <ClInclude Include="Source\Core\Components\BoxCollider2D.h" />
+    <ClInclude Include="Source\Core\Components\ICollider.h" />
     <ClInclude Include="Source\Core\GameObject.h" />
     <ClInclude Include="Source\Core\Components\Component.h" />
     <ClInclude Include="Source\Core\Events.h" />
@@ -191,6 +196,10 @@
   <ItemGroup>
     <None Include="Resources\basic.fragment" />
     <None Include="Resources\basic.vertex" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\circle.png" />
+    <Image Include="Resources\images.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

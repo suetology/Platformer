@@ -15,14 +15,28 @@ Texture::Texture(const char* filename)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	stbi_set_flip_vertically_on_load(1);
-	unsigned char* data = stbi_load(filename, &width, &height, &nrChannels, 0);
+	unsigned char* data = stbi_load(filename, &width, &height, &nrChannels, STBI_rgb_alpha);
 	if (data)
 	{
-		GLint format = GL_RGB;
+		GLint format;
 		if (nrChannels == 4)
+		{
 			format = GL_RGBA;
+		}
+		else if (nrChannels == 3)
+		{
+			format = GL_RGB;
+		}
+		else if (nrChannels == 2)
+		{
+			format = GL_RG;
+		}
+		else
+		{
+			format = GL_RED;
+		}
 
-		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
 		glGenerateMipmap(GL_TEXTURE_2D);
 	}
 	else

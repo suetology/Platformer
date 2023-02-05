@@ -8,8 +8,5 @@ protected:
 	std::string typeName;
 
 	Component(std::string typeName)
-		: typeName(typeName)
-	{
-
-	}
+		: typeName(typeName) {}
 };

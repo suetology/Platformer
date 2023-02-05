@@ -13,7 +13,7 @@ public:
 	static void Clear();
 	static void Close();
 
-	static inline GLFWwindow *Get() { return window; }
+	static inline GLFWwindow* Get() { return window; }
 	static inline int GetWidth() { return width; }
 	static inline int GetHeight() { return height; }
 	static inline float GetAspectRatio() { return aspectRatio; }

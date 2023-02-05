@@ -1,5 +1,17 @@
 #include "GameObject.h"
 
+GameObject::GameObject(std::vector<GameObject*>& container)
+{
+	this->gameObjects = &container;
+	this->id = this->gameObjects->size();
+	this->gameObjects->push_back(this);
+}
+
+GameObject::~GameObject()
+{
+	gameObjects->erase(gameObjects->begin() + this->id);
+}
+
 void GameObject::Render()
 {
 	if (!transform || !spriteRenderer)
@@ -44,7 +56,7 @@ BoxCollider2D* GameObject::AddBoxCollider2DComponent(BoxCollider2D* boxCollider2
 	{
 		return nullptr;
 	}
-	if (!this->boxCollider2D)
+	if (!this->boxCollider2D && !this->circleCollider)
 	{
 		boxCollider2D == nullptr ? this->boxCollider2D = new BoxCollider2D(this->transform) : this->boxCollider2D = boxCollider2D;
 	}
@@ -54,4 +66,22 @@ BoxCollider2D* GameObject::AddBoxCollider2DComponent(BoxCollider2D* boxCollider2
 BoxCollider2D* GameObject::GetBoxCollider2DComponent()
 {
 	return boxCollider2D;
+}
+
+CircleCollider* GameObject::AddCircleColliderComponent(CircleCollider* circleCollider)
+{
+	if (!this->transform)
+	{
+		return nullptr;
+	}
+	if (!this->circleCollider && !this->boxCollider2D)
+	{
+		circleCollider == nullptr ? this->circleCollider = new CircleCollider(this->transform) : this->circleCollider = circleCollider;
+	}
+	return this->circleCollider;
+}
+
+CircleCollider* GameObject::GetCircleColliderComponent()
+{
+	return circleCollider;
 }
